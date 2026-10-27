@@ -18,6 +18,21 @@ Name=pinyin
 # Layout
 # Layout=
 
+[Groups/1]
+# Group Name
+Name=游戏
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=keyboard-us
+
+[Groups/1/Items/0]
+# Name
+Name=keyboard-us
+# Layout
+# Layout=
+
 [GroupOrder]
 0=默认
+1=游戏
 
