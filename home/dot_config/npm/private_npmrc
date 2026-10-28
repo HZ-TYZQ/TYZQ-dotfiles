@@ -1,0 +1,4 @@
+prefix=${HOME}/.local
+registry=https://registry.npmmirror.com
+cache=${HOME}/.cache/npm
+allow-scripts=@anthropic-ai/claude-code

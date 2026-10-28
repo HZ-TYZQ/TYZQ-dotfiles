@@ -1,0 +1,15 @@
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+{{- if or (get . "gitName") (get . "gitEmail") }}
+[user]
+{{- with (get . "gitName") }}
+	name = {{ . }}
+{{- end }}
+{{- with (get . "gitEmail") }}
+	email = {{ . }}
+{{- end }}
+{{- end }}

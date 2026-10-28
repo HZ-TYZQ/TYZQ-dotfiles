@@ -2,11 +2,9 @@
 
 /docs/本机系统变更记录
 
-# Keep personal Git and npm configuration local.
+# Git identity comes from local chezmoi data; never commit a rendered copy.
 /home/dot_gitconfig
 /home/dot_config/git/config
-/home/dot_config/npm/npmrc
-/home/dot_config/npm/private_npmrc
 
 # Claude Code: keep account details, credentials, and runtime data local.
 /home/dot_claude*
@@ -16,13 +14,15 @@
 !/home/dot_config/private_claude/settings.json
 !/home/dot_config/private_claude/executable_statusline-command.sh
 
+# Noctalia GUI settings name personal wallpaper and avatar files; kept local by choice.
+/home/private_dot_local/state/noctalia/
+# Third-party Fcitx5 themes: bed-money's source material forbids commercial use
+# and AI training, and OriDark is another author's work; do not republish them.
+/home/private_dot_local/private_share/private_fcitx5/themes/
+
 # Local working files; review explicit paths before staging.
 __pycache__/
 *.pyc
 *.swp
 *.swo
 *~
-
-# Private configuration files
-
-private_dot_local/
