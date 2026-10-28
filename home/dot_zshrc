@@ -1,8 +1,15 @@
+# Import ~/.config/environment.d for logins outside the systemd session (TTY, SSH).
+# Values already set win, so the graphical session and temporary overrides are kept.
+() {
+  local generator=/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator line
+  [[ -x $generator ]] || return 0
+  for line in ${(f)"$($generator)"}; do
+    [[ -n ${(P)${line%%=*}} ]] || export "$line"
+  done
+}
+
 # Keep completion caches in the XDG cache directory.
 ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${HOST%%.*}-${ZSH_VERSION}"
 mkdir -p -- "${ZSH_COMPDUMP:h}"
 
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
-
-# Keep Claude Code's configuration and data under the XDG config directory.
-export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/claude}"

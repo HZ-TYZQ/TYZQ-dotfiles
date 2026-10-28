@@ -15,7 +15,8 @@
 
 - Niri：窗口、快捷键、输入、会话和显示器模板；屏幕标识、模式和缩放由本机 chezmoi 数据提供，不写入共享模板。
 - Noctalia：`~/.config/noctalia/config.toml` 中的基础配置。
-- Claude Code：用户偏好、状态栏脚本，以及 Fish、Zsh 和用户会话的配置目录入口。
+- 会话环境变量：`environment.d` 统一设置编辑器、Qt6ct、npm 和 Claude Code 的变量；Fish、Zsh 在 TTY/SSH 登录时导入同一份。
+- Claude Code：用户偏好和状态栏脚本。
 - Fcitx5：输入法、快捷键、拼音偏好及通知等配置。
 - Fish、Starship、Fastfetch：终端初始化、提示符、欢迎语和字符画。
 - Kitty、Alacritty：字体、配色与默认终端选择。
@@ -25,7 +26,6 @@
 - Zsh、Vim：启动配置及缓存、状态文件的位置设置。
 - Neovim：LazyVim 配置、插件锁定文件、Markdown 配置及 Taplo 兼容设置。
 - 英文 XDG 用户目录设置。
-- npm 配置入口：Fish 和用户会话中的 `NPM_CONFIG_USERCONFIG` 环境变量设置。
 
 没有安装脚本或自动提交、推送、应用钩子。
 
