@@ -3,18 +3,18 @@
 /docs/本机系统变更记录
 
 # Keep personal Git and npm configuration local.
-/dot_gitconfig
-/dot_config/git/config
-/dot_config/npm/npmrc
-/dot_config/npm/private_npmrc
+/home/dot_gitconfig
+/home/dot_config/git/config
+/home/dot_config/npm/npmrc
+/home/dot_config/npm/private_npmrc
 
 # Claude Code: keep account details, credentials, and runtime data local.
-/dot_claude*
-/private_dot_claude*
-/dot_config/claude/
-/dot_config/private_claude/*
-!/dot_config/private_claude/settings.json
-!/dot_config/private_claude/executable_statusline-command.sh
+/home/dot_claude*
+/home/private_dot_claude*
+/home/dot_config/claude/
+/home/dot_config/private_claude/*
+!/home/dot_config/private_claude/settings.json
+!/home/dot_config/private_claude/executable_statusline-command.sh
 
 # Local working files; review explicit paths before staging.
 __pycache__/

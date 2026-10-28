@@ -42,8 +42,9 @@ def main():
         text = text.rstrip() + "\n\n" + LOCATION
     text = HEADER + text.replace(str(home), "{{ .chezmoi.homeDir }}")
 
-    root = Path(__file__).resolve().parents[1]
-    target = root / "private_dot_local/state/noctalia/settings.toml.tmpl"
+    repo = Path(__file__).resolve().parents[1]
+    source = repo / (repo / ".chezmoiroot").read_text().strip()
+    target = source / "private_dot_local/state/noctalia/settings.toml.tmpl"
     target.parent.mkdir(parents=True, exist_ok=True)
     temporary = target.with_suffix(".tmp")
     temporary.write_text(text)

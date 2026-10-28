@@ -1,11 +1,3 @@
-# Repository-only documentation and maintenance scripts.
-.gitattributes
-README.md
-docs/
-docs/**
-scripts/
-scripts/**
-
 # Generated theme output and unused stock Niri configuration.
 .config/niri/noctalia.kdl
 .config/niri/cfg/

@@ -5,6 +5,12 @@
 旧 Fedora 配置可在迁移前的 Git 历史中查看。
 唯一维护源目录：`~/.local/share/chezmoi`。
 
+## 仓库结构
+
+`.chezmoiroot` 把 chezmoi 的源状态指向 `home/`：其中的文件对应家目录，
+`.chezmoi.toml.tmpl` 和 `.chezmoiignore` 也在这里。仓库根目录的 README、`docs/`、
+`scripts/` 和 Git 配置只属于仓库本身，不会部署到家目录。
+
 ## 已纳入 Git 管理
 
 - Niri：窗口、快捷键、输入、会话和显示器模板；屏幕标识、模式和缩放由本机 chezmoi 数据提供，不写入共享模板。
@@ -29,13 +35,13 @@
 
 | 配置 | 本机 chezmoi 源副本 |
 | --- | --- |
-| Git 全局配置，包括个人身份和凭据助手设置 | `dot_config/git/config` |
-| npm 个人配置 | `dot_config/npm/private_npmrc` |
-| Noctalia GUI 设置：面板、组件、主题、壁纸路径、闲置行为等 | `private_dot_local/state/noctalia/settings.toml.tmpl` |
-| Fcitx5 的 `bed-money` / `OriDark` 主题文件 | `private_dot_local/private_share/private_fcitx5/themes/` |
-| `qq-show` 启动脚本 | `private_dot_local/bin/executable_qq-show` |
+| Git 全局配置，包括个人身份和凭据助手设置 | `home/dot_config/git/config` |
+| npm 个人配置 | `home/dot_config/npm/private_npmrc` |
+| Noctalia GUI 设置：面板、组件、主题、壁纸路径、闲置行为等 | `home/private_dot_local/state/noctalia/settings.toml.tmpl` |
+| Fcitx5 的 `bed-money` / `OriDark` 主题文件 | `home/private_dot_local/private_share/private_fcitx5/themes/` |
+| `qq-show` 启动脚本 | `home/private_dot_local/bin/executable_qq-show` |
 
-整个 `private_dot_local/` 源目录都已退出 Git 跟踪，仅保留本机副本。
+整个 `home/private_dot_local/` 源目录都已退出 Git 跟踪，仅保留本机副本。
 这些文件需要单独备份；在新机器克隆仓库或执行 `chezmoi init` 无法恢复它们。
 配置中引用的 Fcitx5 主题、`qq-show` 脚本也需要另行恢复，或调整相应配置。
 
