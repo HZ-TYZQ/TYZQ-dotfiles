@@ -1,0 +1,15 @@
+// Generated from this machine's ~/.config/chezmoi/chezmoi.toml [data].
+// Use the full display identity from `niri msg outputs` as niriOutputName.
+// Without an output name, Niri chooses the display settings automatically.
+{{ with (get . "niriOutputName") -}}
+output {{ . | quote }} {
+    {{- with (get $ "niriOutputMode") }}
+    mode {{ . | quote }}
+    {{- end }}
+    {{- with (get $ "niriOutputScale") }}
+    scale {{ . }}
+    {{- end }}
+    transform "normal"
+    position x=0 y=0
+}
+{{ end -}}
