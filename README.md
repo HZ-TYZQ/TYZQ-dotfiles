@@ -69,7 +69,7 @@ chezmoi git diff
 `re-add` 更新已管理的普通文件；新文件需要单独 `chezmoi add 路径`。
 Noctalia 的 GUI 设置用上面的脚本保存，它会移除天气位置数值并模板化家目录路径。
 该脚本更新的是 Git 忽略的本机模板；GUI 设置的变化不会出现在 `git diff` 中。
-Niri 的入口和 `hosts/laptop.kdl` 都是模板，通用结构用 `chezmoi edit` 修改；其余 Niri 片段可正常 `re-add`。
+Niri 只有 `conf.d/outputs.kdl` 是模板，用 `chezmoi edit` 修改；入口和其余片段可正常 `re-add`。
 本机屏幕标识、模式和缩放以及 Git 身份在 `~/.config/chezmoi/chezmoi.toml` 的 `[data]` 中维护，详见使用指南。
 Qt6ct 和 Git 配置也使用模板，用 `chezmoi edit ~/.config/qt6ct/qt6ct.conf`、
 `chezmoi edit ~/.config/git/config` 修改；普通 `re-add` 会跳过模板。

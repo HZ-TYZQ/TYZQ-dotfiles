@@ -1,11 +1,9 @@
-// Niri entry point. Select a hosts/ display profile in local chezmoi data.
+// Niri entry point. Display settings come from local chezmoi data via outputs.kdl.
 // Noctalia's generated colors stay last.
 
 include "conf.d/session.kdl"
 include "conf.d/input.kdl"
-{{ with (get . "niriDisplayProfile") -}}
-include {{ printf "hosts/%s.kdl" . | quote }}
-{{ end -}}
+include "conf.d/outputs.kdl"
 include "conf.d/appearance.kdl"
 include "conf.d/rules.kdl"
 include "conf.d/binds.kdl"

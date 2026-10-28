@@ -4,7 +4,6 @@
 [data]
     gitName = {{ promptStringOnce . "gitName" "Git user.name" | quote }}
     gitEmail = {{ promptStringOnce . "gitEmail" "Git user.email" | quote }}
-    niriDisplayProfile = {{ get . "niriDisplayProfile" | default "" | quote }}
     niriOutputName = {{ get . "niriOutputName" | default "" | quote }}
     niriOutputMode = {{ get . "niriOutputMode" | default "" | quote }}
     niriOutputScale = {{ get . "niriOutputScale" | default 0 }}
