@@ -86,7 +86,7 @@
     },
     {
       "type": "memory",
-      "key": "├ 󰍛 MEM",
+      "key": "├  MEM",
       "keyColor": "#b8bdc7",
       "format": "{used} / {total} ({percentage})"
     },

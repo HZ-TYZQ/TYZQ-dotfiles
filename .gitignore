@@ -6,13 +6,13 @@
 /home/dot_gitconfig
 /home/dot_config/git/config
 
-# Claude Code: keep account details, credentials, and runtime data local.
+# Claude Code is not managed.
 /home/dot_claude*
 /home/private_dot_claude*
 /home/dot_config/claude/
-/home/dot_config/private_claude/*
-!/home/dot_config/private_claude/settings.json
-!/home/dot_config/private_claude/executable_statusline-command.sh
+/home/dot_config/private_claude/
+/home/dot_config/environment.d/80-claude.conf
+/home/dot_config/fish/conf.d/40-claude.fish
 
 # Noctalia GUI settings name personal wallpaper and avatar files; kept local by choice.
 /home/private_dot_local/state/noctalia/

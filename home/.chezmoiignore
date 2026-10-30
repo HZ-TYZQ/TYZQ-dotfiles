@@ -46,10 +46,11 @@
 .local/share/keyrings/**
 .cache/**
 
-# Claude Code: only reviewed preferences and the status line are managed.
+# Claude Code is not managed.
 .claude/
 .claude/**
 .claude.json*
-.config/claude/*
-!.config/claude/settings.json
-!.config/claude/statusline-command.sh
+.config/claude/
+.config/claude/**
+.config/environment.d/80-claude.conf
+.config/fish/conf.d/40-claude.fish

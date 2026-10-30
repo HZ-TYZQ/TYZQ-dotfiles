@@ -1,5 +1,5 @@
 // Session environment variables.
-// Session-wide variables (Qt6ct, editor, npm, Claude Code) live in ~/.config/environment.d;
+// Session-wide variables (Qt6ct, editor, npm) live in ~/.config/environment.d;
 // niri.service already inherits them from the systemd user manager.
 // XMODIFIERS lets X11/XWayland apps (e.g. QQ running via XWayland) find Fcitx5 via
 // the XIM protocol. GTK_IM_MODULE/QT_IM_MODULE are deliberately NOT set: Wayland-native
