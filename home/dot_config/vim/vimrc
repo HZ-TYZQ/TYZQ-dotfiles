@@ -6,3 +6,11 @@ let s:state_dir = (empty($XDG_STATE_HOME) ? expand('~/.local/state') : $XDG_STAT
 call mkdir(s:state_dir, 'p', 0700)
 let &viminfofile = s:state_dir . '/viminfo'
 unlet s:state_dir
+
+" 根据 Vim 模式切换终端光标形状。
+" Insert：不闪烁的竖线。
+let &t_SI = "\e[6 q"
+" Replace：不闪烁的下划线。
+let &t_SR = "\e[4 q"
+" Normal：不闪烁的方块。
+let &t_EI = "\e[2 q"

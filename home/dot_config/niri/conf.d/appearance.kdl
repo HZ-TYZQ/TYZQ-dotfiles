@@ -204,7 +204,7 @@ animations {
 }
 
 // Global background blur parameters used by window-rule/layer-rule background-effect.
-blur {
+/-blur {
     passes 3
     offset 3.0
     noise 0.00

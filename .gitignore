@@ -14,11 +14,11 @@
 /home/dot_config/environment.d/80-claude.conf
 /home/dot_config/fish/conf.d/40-claude.fish
 
-# Noctalia GUI settings name personal wallpaper and avatar files; kept local by choice.
+# Fcitx5 and Noctalia are managed manually, outside the source state.
+/home/dot_config/private_fcitx5/
+/home/dot_config/noctalia/
+/home/private_dot_local/private_share/private_fcitx5/
 /home/private_dot_local/state/noctalia/
-# Third-party Fcitx5 themes: bed-money's source material forbids commercial use
-# and AI training, and OriDark is another author's work; do not republish them.
-/home/private_dot_local/private_share/private_fcitx5/themes/
 
 # Local working files; review explicit paths before staging.
 __pycache__/

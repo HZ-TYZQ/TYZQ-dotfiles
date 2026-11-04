@@ -51,7 +51,7 @@ window-rule {
 }
 
 // Let the wallpaper subtly show through windows that are not focused.
-window-rule {
+/-window-rule {
     match is-active=false
     opacity 0.80
 
@@ -63,7 +63,7 @@ window-rule {
 
 // Kitty renders only its background with alpha, keeping terminal text and
 // input-method popups crisp. Niri supplies the blur behind that background.
-window-rule {
+/-window-rule {
     match app-id=r#"^kitty$"#
 
     background-effect {
@@ -93,19 +93,9 @@ layer-rule {
     place-within-backdrop true
 }
 
-// Noctalia owns its own panel backgrounds, so Niri applies no blur to any
-// Noctalia layer — including the bar, whose frosted-glass look is drawn by
-// Noctalia itself.
-//
-// NOTE: noctalia-dock must never get blur. When the dock auto-hides, its layer
-// surface stays mapped and fully transparent, and blur turned it into a visible
-// ghost rectangle at the bottom edge. Re-tested on 2026-08-07: ghost rectangle
-// reproduced, same transparent-surface mechanism as the popup halo.
-//
-// This wildcard rule is the single source of truth; do not add a more specific
-// noctalia-* blur rule above it, because later rules override earlier ones and
-// the blur would silently be cancelled again.
-layer-rule {
+// Let Noctalia request blur via ext-background-effects.
+// Keep the previous override for reference: it prevented dock/popup blur artifacts.
+/-layer-rule {
     match namespace=r#"^noctalia-.*$"#
 
     background-effect {

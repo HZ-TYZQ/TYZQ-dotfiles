@@ -1,2 +1,0 @@
-# Preserve Fcitx5's generated trailing blank lines for clean chezmoi diffs.
-home/dot_config/private_fcitx5/** whitespace=-blank-at-eof

@@ -9,14 +9,12 @@
 
 `.chezmoiroot` 把 chezmoi 的源状态指向 `home/`：其中的文件对应家目录，
 `.chezmoi.toml.tmpl` 和 `.chezmoiignore` 也在这里。仓库根目录的 README、`docs/`、
-`scripts/` 和 Git 配置只属于仓库本身，不会部署到家目录。
+Git 配置只属于仓库本身，不会部署到家目录。
 
 ## 已纳入 Git 管理
 
 - Niri：窗口、快捷键、输入、会话和显示器模板；屏幕标识、模式和缩放由本机 chezmoi 数据提供，不写入共享模板。
-- Noctalia：`~/.config/noctalia/config.toml` 中的基础配置。
 - 会话环境变量：`environment.d` 统一设置编辑器、Qt6ct 和 npm 的变量；Fish、Zsh 在 TTY/SSH 登录时导入同一份。
-- Fcitx5：输入法、快捷键、拼音偏好及通知等配置。
 - Fish、Starship、Fastfetch：终端初始化、提示符、欢迎语和字符画。
 - Kitty、Alacritty：字体、配色与默认终端选择。
 - Qt6ct：Fusion 风格、Noto 字体、Papirus-Dark 图标及启动环境；配色由 Noctalia 生成，路径随家目录渲染。
@@ -31,24 +29,25 @@
 
 没有安装脚本或自动提交、推送、应用钩子。
 
-## 仅在本机管理，不纳入 Git
+## 本机数据与手动管理
 
-以下内容仍由本机 chezmoi 管理，但不会随提交、推送上传：
+Git 提交身份保存在 `~/.config/chezmoi/chezmoi.toml` 的 `gitName`、`gitEmail`，每台机器单独设置。
 
-| 内容 | 位置 | 原因 |
-| --- | --- | --- |
-| Git 提交身份 | `~/.config/chezmoi/chezmoi.toml` 的 `gitName`、`gitEmail` | 每台机器单独设置 |
-| Noctalia GUI 设置：面板、组件、主题、壁纸路径、闲置行为等 | `home/private_dot_local/state/noctalia/settings.toml.tmpl` | 含个人壁纸和头像文件名 |
-| Fcitx5 的 `bed-money` / `OriDark` 主题文件 | `home/private_dot_local/private_share/private_fcitx5/themes/` | 第三方作品，素材限制再分发 |
+Fcitx5 和 Noctalia 全部改为手动管理，配置、主题和状态目录已从 chezmoi 源状态移除，
+并由 `.chezmoiignore` 排除。日常直接通过应用界面或编辑本机文件调整：
 
-后两项的源副本由 `.gitignore` 按具体路径排除，需要单独备份；在新机器克隆仓库或执行
-`chezmoi init` 无法恢复它们，配置中引用的 Fcitx5 主题也需要另行恢复。
+- Fcitx5：`~/.config/fcitx5/`、`~/.local/share/fcitx5/`。
+- Noctalia：`~/.config/noctalia/`、`~/.local/state/noctalia/`。
+
+这些文件保留在本机，需要手动备份和迁移；`chezmoi re-add` 不会采集它们，
+`chezmoi apply` 不会部署或覆盖它们。旧的 Noctalia 采集脚本已移除。
+Fcitx5 的输入组、通知偏好与主题说明见使用指南。
 
 Claude Code 已退出管理；其配置目录和专用环境变量文件由忽略规则排除。
 
 软件、字体、壁纸和插件运行数据需要另行安装或恢复。
 浏览器登录、密钥、keyring、gh 凭证、输入法用户词库、历史和缓存不纳入本仓库。
-Noctalia 生成的颜色文件不纳管；天气位置保留在本机，不写进 Git。
+Noctalia 生成的颜色文件继续由它维护；天气位置保留在本机。
 
 ## 日常保存
 
@@ -56,15 +55,13 @@ Noctalia 生成的颜色文件不纳管；天气位置保留在本机，不写�
 
 ```sh
 chezmoi re-add
-python3 ~/.local/share/chezmoi/scripts/capture-noctalia.py
 chezmoi diff
 chezmoi git status --short
 chezmoi git diff
 ```
 
 `re-add` 更新已管理的普通文件；新文件需要单独 `chezmoi add 路径`。
-Noctalia 的 GUI 设置用上面的脚本保存，它会移除天气位置数值并模板化家目录路径。
-该脚本更新的是 Git 忽略的本机模板；GUI 设置的变化不会出现在 `git diff` 中。
+Fcitx5 和 Noctalia 的修改直接保存在本机，不进入上述流程。
 Niri 只有 `conf.d/outputs.kdl` 是模板，用 `chezmoi edit` 修改；入口和其余片段可正常 `re-add`。
 本机屏幕标识、模式和缩放以及 Git 身份在 `~/.config/chezmoi/chezmoi.toml` 的 `[data]` 中维护，详见使用指南。
 Qt6ct 和 Git 配置也使用模板，用 `chezmoi edit ~/.config/qt6ct/qt6ct.conf`、

@@ -24,14 +24,19 @@
 .config/mpv/watch_history.jsonl
 .local/state/mpv/**
 
-# Input method learning data and caches are local.
-.config/fcitx5/conf/cached_layouts
-.local/share/fcitx5/pinyin/**
-.local/share/fcitx5/theme-backups/**
-
-# Only Noctalia's settings.toml is captured; other state stays local.
-.local/state/noctalia/*
-!.local/state/noctalia/settings.toml
+# Fcitx5 and Noctalia are managed manually, including settings, themes and state.
+.config/fcitx5
+.config/fcitx5/**
+.local/share/fcitx5
+.local/share/fcitx5/**
+.local/state/fcitx5
+.local/state/fcitx5/**
+.config/noctalia
+.config/noctalia/**
+.local/share/noctalia
+.local/share/noctalia/**
+.local/state/noctalia
+.local/state/noctalia/**
 
 # Authentication and browser profiles stay outside this public repository.
 .ssh/**
